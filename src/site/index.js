@@ -6,6 +6,7 @@ import './styles.scss';
 
 import { csv } from 'd3-fetch';
 import { nest } from 'd3-collection';
+import { shuffle } from 'lodash';
 
 import facesBarChart from '../plots/facesBarChart';
 
@@ -21,7 +22,15 @@ import facesBarChart from '../plots/facesBarChart';
   const programsS2021 = await csv('dist/data/programs.csv');
 
   const resize = () => {
-    facesBarChart(peopleS2021.slice(0, 5));
+    facesBarChart(
+      peopleS2021
+        .filter((d) => d.position === 'On-Campus Senator')
+        .sort((a, b) => a.votes - b.votes),
+    );
+    // setTimeout(() => {
+    //   console.log('next');
+    //   facesBarChart(shuffle(peopleS2021).slice(0, 7));
+    // }, 5000);
   };
 
   window.addEventListener('resize', () => {
