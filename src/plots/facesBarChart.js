@@ -3,22 +3,14 @@
  * @author alex
  * @author bella
  */
+
 import { select } from 'd3-selection';
 import { scaleBand, scaleLinear } from 'd3-scale';
 import { axisBottom } from 'd3-axis';
 import { max } from 'd3-array';
 import 'd3-transition';
 
-/**
- * Get Senator Image url
- *
- * @param {{ name: string }} person Person object with a name key
- * @returns {string} senator's image path
- */
-const getPhotoUrl = (person) => {
-  const name = person.name.toLowerCase().replaceAll(' ', '_');
-  return `dist/photos/${name}.jpg`;
-};
+import { getPhotoUrl } from './utility';
 
 /**
  * Creates svg, bars
@@ -79,7 +71,7 @@ const makePlot = (data, container) => {
     Create Scales:
   */
   const x = scaleLinear()
-    .domain([0, max(data, (d) => d.votes)])
+    .domain([0, Math.ceil(max(data, (d) => d.votes) / 50) * 50])
     .range([margin.left, size.width - margin.right]);
 
   const y = scaleBand()

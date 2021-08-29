@@ -1,6 +1,9 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require("path")
+const HtmlWebpackPlugin = require("html-webpack-plugin")
 require('dotenv').config();
+
+const plotIds = ['ucsb-as-voting-org', 'ucsb-as-voting-program-reaffirm', 'ucsb-as-voting-faces',
+];
 
 const config = {
   entry: './src/site/index.js',
@@ -11,6 +14,7 @@ const config = {
   plugins: [
     new HtmlWebpackPlugin({
       name: process.env.NAME,
+      plotIds,
       filename: '../index.html',
       template: 'src/site/index.ejs',
     }),
@@ -25,6 +29,4 @@ const config = {
   },
 };
 
-module.exports = () => {
-  return config;
-};
+module.exports = () => config;

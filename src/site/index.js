@@ -9,28 +9,38 @@ import { nest } from 'd3-collection';
 import { shuffle } from 'lodash';
 
 import facesBarChart from '../plots/facesBarChart';
+import organization from '../plots/organization';
+import programChart from '../plots/programChart';
 
 (async () => {
-  const peopleS2021 = await csv('dist/data/people.csv', (d) => ({
-    ...d, votes: +d.votes, space: +d.space, totalVotes: +d.totalVotes,
+  const people = await csv('dist/data/people.csv', (d) => ({
+    ...d,
+    votes: +d.votes,
+    space: +d.space,
+    totalVotes: +d.totalVotes,
   }));
 
-  const nested = nest()
-    .key((d) => d.position)
-    .entries(peopleS2021);
+  const programs = (await csv('dist/data/programs.csv', (d) => ({
+    ...d,
+    no: +d.no,
+    yes: +d.yes,
+    pct: +d.yes / (+d.yes + +d.no),
+  }))).sort((a, b) => b.pct - a.pct);
 
-  const programsS2021 = await csv('dist/data/programs.csv');
+  console.log(programs);
 
   const resize = () => {
     facesBarChart(
-      peopleS2021
-        .filter((d) => d.position === 'On-Campus Senator')
+      people
+        .filter((d) => d.position === 'Off-Campus Senator')
         .sort((a, b) => a.votes - b.votes),
     );
+    programChart(programs);
     // setTimeout(() => {
     //   console.log('next');
-    //   facesBarChart(shuffle(peopleS2021).slice(0, 7));
+    //   facesBarChart(shuffle(people).slice(0, 7));
     // }, 5000);
+    // organization(people.filter((d) => d.elected === 'yes'));
   };
 
   window.addEventListener('resize', () => {

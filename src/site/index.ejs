@@ -74,10 +74,16 @@
                     ADD PLOTS HERE:
 
                 -->
-                <div id="ucsb-as-voting-faces"></div>
+                <% for ( let id of htmlWebpackPlugin.options.plotIds) {%>
+
+                    <div id="<%=id %>">
+                    </div>
+                    <hr />
+
+                    <% } %>
+
             </main>
-            <hr />
-            <a href="https://dailynexus.com/category/labyrinth/">The Daily Nexus Labyrinth</a>
+            <a href=" https://dailynexus.com/category/labyrinth/">The Daily Nexus Labyrinth</a>
         </article>
     </body>
 
