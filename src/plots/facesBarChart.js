@@ -9,7 +9,7 @@ import { scaleBand, scaleLinear } from 'd3-scale';
 import { axisBottom } from 'd3-axis';
 import { max } from 'd3-array';
 import 'd3-transition';
-
+import { selectAll } from 'd3-selection';
 import { getPhotoUrl } from './utility';
 
 /**
@@ -46,8 +46,8 @@ const makePlot = (data, container) => {
   const imageSize = 50;
 
   const margin = {
-    top: 10,
-    right: 10 + imageSize / 2,
+    top: 15,
+    right: 20 + imageSize / 2,
     bottom: 30,
     left: 10 + imageSize / 2,
   };
@@ -97,9 +97,9 @@ const makePlot = (data, container) => {
   // put images at end of bars
   bars
     .append('foreignObject')
-    .attr('x', (d) => x(d.votes) - imageSize / 2)
+    .attr('x', (d) => x(d.votes) + 10)
     .attr('y', (d) => y(d.name))
-    .attr('width', imageSize)
+    .attr('width', (d) => x(d.votes))
     .attr('height', imageSize)
     .append('xhtml:img')
     .attr('width', imageSize)
@@ -107,6 +107,36 @@ const makePlot = (data, container) => {
     .attr('src', (d) => getPhotoUrl(d))
     .style('border-radius', '50%');
 
+  
+  bars
+    .append('rect')
+    .attr('x', x(0))
+    .attr('y', (d) => y(d.name))
+    .attr('width', (d) => x(d.votes) - imageSize + 10)
+    .attr('height', imageSize)
+    .attr('fill', (d) => barColors[d.elected])
+    .on('mouseenter', (event, d) => {
+      svg
+      .append('text')
+      .text(d.votes)
+      .attr('x', x(d.votes) - 10)
+      .attr('y', y(d.name) + 5 + imageSize / 2)
+      .attr('class', 'hover-over-text')
+      .attr('text-anchor', 'end')
+      .attr('fill', 'white');
+    })
+    .on('mouseleave', () => {
+      selectAll('.hover-over-text').remove();
+    });
+
+  bars
+    .append('text')
+    .text((d) => (d.name))
+    .attr('x', x(0))//(d) => x(d.votes) - 5)
+    .attr('y', (d) => y(d.name) - 3)
+    .attr('text-anchor', 'start')
+    .attr('font-size', '11pt');
+  
   /*
      x-axis
     */
