@@ -1,8 +1,13 @@
-const path = require("path")
-const HtmlWebpackPlugin = require("html-webpack-plugin")
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 require('dotenv').config();
 
-const plotIds = ['ucsb-as-voting-org', 'ucsb-as-voting-program-reaffirm', 'ucsb-as-voting-faces',
+const plotIds = [
+  'plot-test',
+  'ucsb-as-voting-filled-seats',
+  'ucsb-as-voting-org',
+  'ucsb-as-voting-program-reaffirm',
+  'ucsb-as-voting-faces',
 ];
 
 const config = {

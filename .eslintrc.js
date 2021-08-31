@@ -9,7 +9,7 @@ module.exports = {
     'arrow-body-style': ['error', 'as-needed'],
     'brace-style': ['error', 'stroustrup'],
     'max-len': ['error', { ignoreComments: true }],
-    'operator-linebreak': ['error', 'before', { overrides: { '=': 'after' } }],
+    'operator-linebreak': [2, 'before', { overrides: { '=': 'after' } }],
     'no-multi-str': 'error',
     'func-names': ['error', 'never'],
   },
