@@ -21,8 +21,10 @@ const makePlot = (data) => {
   */
 
   // The class is necessary to apply styling
-  const container = select('#ucsb-as-voting-program-reaffirm')
-    .attr('class', 'ucsb-as-voting');
+  const container = select('#ucsb-as-voting-program-reaffirm').attr(
+    'class',
+    'ucsb-as-voting',
+  );
 
   // When the resize event is called, reset the plot
   container.selectAll('*').remove();
@@ -41,7 +43,9 @@ const makePlot = (data) => {
     reaffirmed: 'green',
   };
 
-  const pctColors = scaleLinear().domain([0, 0.5, 1]).range(['red', 'white', 'green']);
+  const pctColors = scaleLinear()
+    .domain([0, 0.5, 1])
+    .range(['red', 'white', 'green']);
 
   container
     .append('table')
@@ -52,7 +56,7 @@ const makePlot = (data) => {
     .enter()
     .append('tr')
     .selectAll('rows')
-    .data((d, i) => Object.entries({ program: d.program, pct: d.pct }))
+    .data((d) => Object.entries({ program: d.program, pct: d.pct }))
     .enter()
     .append('td')
     .style('text-align', (d) => {
@@ -65,14 +69,12 @@ const makePlot = (data) => {
       if (d[0] === 'pct') {
         return format('.2f')(Math.round(d[1] * 10000) / 100);
       }
-
       return d[1];
     })
     .style('background-color', (d) => {
       if (d[0] === 'pct') {
         return `${pctColors(d[1]).slice(0, -1)}, 0.75)`;
       }
-
       return '#FFFFFFFF';
     });
 };
