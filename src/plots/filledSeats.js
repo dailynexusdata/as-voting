@@ -5,8 +5,8 @@
  * @author Alex
  */
 import { select } from 'd3-selection';
-import { scaleBand, scaleLinear } from 'd3-scale';
-import { max } from 'd3-array';
+import { scaleBand, scaleLinear, scalePoint } from 'd3-scale';
+import { max, range } from 'd3-array';
 
 import { getPhotoUrl } from './utility';
 
@@ -128,9 +128,9 @@ const makePlot = (data) => {
   };
 
   const margin = {
-    top: 10,
-    right: 10,
-    bottom: 10,
+    top: 40,
+    right: 10 + imageSize,
+    bottom: 0,
     left: 10,
   };
 
@@ -153,14 +153,17 @@ const makePlot = (data) => {
 
   // could simplify domain to [0, maxPeopleLine]
   // but this makes sure its always filled
-  const x = scaleLinear()
-    .domain([
-      0,
-      max(nested, (d) => {
-        const sp = Math.max(d.values.length, d.values[0].space);
-        return Math.min(sp, maxPeopleLine);
-      }),
-    ])
+  const x = scalePoint()
+    .domain(
+      range(
+        0,
+        max(nested, (d) => {
+          const sp = Math.max(d.values.length, d.values[0].space);
+          return Math.min(sp, maxPeopleLine);
+        }),
+        1,
+      ),
+    )
     .range([margin.left, size.width - margin.right]);
 
   /**
@@ -217,11 +220,15 @@ const makePlot = (data) => {
       return linePos >= d.space ? circleColors.lost : circleColors.won;
     });
 
-  positions
+  const faces = positions
     .append('g')
     .selectAll('.portraits')
     .data((d) => sortPeople(d.values))
     .enter()
+    .append('g')
+    .attr('fill-opacity', 0);
+
+  faces
     .append('foreignObject')
     .attr('x', (_, i) => x(i))
     .attr('y', z(0))
@@ -231,7 +238,40 @@ const makePlot = (data) => {
     .attr('width', imageSize)
     .attr('height', imageSize)
     .attr('src', (d) => getPhotoUrl(d))
-    .style('border-radius', '50%');
+    .style('border-radius', '50%')
+    .on('mouseenter', function () {
+      const g = select(this).nodes()[0].parentNode.parentNode;
+      select(g).attr('fill-opacity', 1);
+    })
+    .on('mouseleave', function () {
+      const g = select(this).nodes()[0].parentNode.parentNode;
+      select(g).attr('fill-opacity', 0);
+    });
+
+  faces
+    .append('text')
+    .text((d) => d.name)
+    .attr('x', (_, i) => {
+      if (i === 0) {
+        return x(i) - 5;
+      }
+      if (i === maxPeopleLine - 1) {
+        return x(i) + imageSize + 5;
+      }
+      return x(i) + imageSize / 2;
+    })
+    .attr('y', z(0) + imageSize + 8)
+    .attr('text-anchor', (_, i) => {
+      if (i === 0) {
+        return 'start';
+      }
+      if (i === maxPeopleLine - 1) {
+        return 'end';
+      }
+      return 'middle';
+    })
+    .attr('alignment-baseline', 'hanging')
+    .style('pointer-events', 'none');
 
   /**
    * filter out start of categories
