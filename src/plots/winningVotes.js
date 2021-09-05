@@ -40,7 +40,6 @@ const makePlot = (data) => {
           textAnchor: 'start',
           fill: 'position',
         }),
-        Plot.ruleX([0]),
         Plot.text(plotData, {
           x: (d) => d.votes + 40,
           y: 'j',
