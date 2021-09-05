@@ -4,6 +4,7 @@ require('dotenv').config();
 
 const plotIds = [
   'plot-test',
+  'plot-test-2',
   'ucsb-as-voting-filled-seats',
   'ucsb-as-voting-org',
   'ucsb-as-voting-program-reaffirm',

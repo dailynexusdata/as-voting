@@ -2,7 +2,11 @@ import * as Plot from '@observablehq/plot';
 import { select } from 'd3-selection';
 
 const makePlot = (data) => {
-  const container = select('#plot-test').attr('class', 'ucsb-as-voting');
+  const container = select('#plot-test')
+    .attr('class', 'ucsb-as-voting')
+    .style('font-size', '10pt');
+
+  container.selectAll('*').remove();
 
   const plotData = data
     .sort((a, b) => {
@@ -12,12 +16,13 @@ const makePlot = (data) => {
       return b.totalVotes - a.totalVotes;
     })
     .map((d, i) => ({ ...d, i })); // .filter((d) => d.position === 'On-Campus Senator');
+
   console.log(plotData);
   document.getElementById('plot-test').appendChild(
     Plot.plot({
       width: Math.min(window.innerWidth - 60, 600),
-      marginLeft: 350,
-      marginRight: 0,
+      marginLeft: 260,
+      marginRight: 10,
       y: {
         label: null,
         line: null,

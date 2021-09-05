@@ -9,9 +9,9 @@ import { nest } from 'd3-collection';
 import { shuffle } from 'lodash';
 
 import facesBarChart from '../plots/facesBarChart';
-import organization from '../plots/organization';
+import makeTotalVotes from '../plots/totalVotes';
+import makeWinningVotes from '../plots/winningVotes';
 import programChart from '../plots/programChart';
-import makeTestPlot from '../plots/plotTest';
 import makeFilledSeats from '../plots/filledSeats';
 
 (async () => {
@@ -45,7 +45,8 @@ import makeFilledSeats from '../plots/filledSeats';
     //   facesBarChart(shuffle(people).slice(0, 7));
     // }, 5000);
     // organization(people.filter((d) => d.elected === 'yes'));
-    // makeTestPlot(people);
+    makeTotalVotes(people);
+    makeWinningVotes(people);
     makeFilledSeats(people);
   };
 

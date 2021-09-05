@@ -71,17 +71,29 @@ const makePlot = (data) => {
    */
   const imageSize = 50;
   const maxPeopleLine = 5;
+  // const catOrder = [
+  //   'External Vice President - Statewide Affairs',
+  //   'Student Advocate',
+  //   'On-Campus Senator',
+  //   'Off-Campus Senator',
+  //   'Collegiate Senator - Letters & Science',
+  //   'Collegiate Senator - Engineering',
+  //   'Collegiate Senator - Creative Studies',
+  //   'Transfer Senator',
+  //   'Off-Campus University Owned',
+  //   'International Senator',
+  // ];
   const catOrder = [
     'External Vice President - Statewide Affairs',
     'Student Advocate',
-    'On-Campus Senator',
-    'Off-Campus Senator',
     'Collegiate Senator - Letters & Science',
-    'Collegiate Senator - Engineering',
-    'Collegiate Senator - Creative Studies',
+    'Off-Campus Senator',
+    'On-Campus Senator',
     'Transfer Senator',
     'Off-Campus University Owned',
     'International Senator',
+    'Collegiate Senator - Engineering',
+    'Collegiate Senator - Creative Studies',
   ];
 
   // data nesting with a max number of items per nest
