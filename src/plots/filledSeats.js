@@ -84,6 +84,7 @@ const makePlot = (data) => {
   //   'International Senator',
   // ];
   const catOrder = [
+    'President',
     'External Vice President - Statewide Affairs',
     'Student Advocate',
     'Collegiate Senator - Letters & Science',

@@ -1,35 +1,108 @@
-position,name,votes,elected,space,party,writeIn,totalVotes,endorsements
-Transfer Senator,Hannah Lee,344,yes,1,Isla Vista Party,no,547,
-Transfer Senator,Zachary Brenner,203,no,1,Storke Party,no,547,Zeta Beta Tau
-International Senator,Aijia Wang,95,yes,2,Storke Party,no,261,Zeta Beta Tau
-International Senator,April Zhang,166,yes,2,Isla Vista Party,no,261,
-Collegiate Senator - Creative Studies,Cassandra Chow,37,yes,1,Storke Party,no,37,Zeta Beta Tau
-Collegiate Senator - Engineering,Cesar Castillo,227,yes,1,Independent,no,227,
-Collegiate Senator - Letters & Science,Avital Rutenburg,724,yes,4,Storke Party,no,3680,Zeta Beta Tau
-Collegiate Senator - Letters & Science,Elizabeth Garabedian,460,no,4,Storke Party,no,3680,Zeta Beta Tau
-Collegiate Senator - Letters & Science,Hailey Stankiewicz,909,yes,4,Isla Vista Party,no,3680,
-Collegiate Senator - Letters & Science,Taylor Tait,622,yes,4,Storke Party,no,3680,Zeta Beta Tau
-Collegiate Senator - Letters & Science,Vincent Tran,965,yes,4,Isla Vista Party,no,3680,
-Off-Campus University Owned,Erick Aragon Alvarado,126,no,1,Isla Vista Party,no,457,Zeta Beta Tau
-Off-Campus University Owned,Erika Ramos,331,yes,1,Storke Party,no,457,
-On-Campus Senator,Jessy Gonzalez,369,yes,5,Isla Vista Party,no,755,
-On-Campus Senator,Ethan Engler,361,yes,5,Storke Party,no,755,Zeta Beta Tau
-On-Campus Senator,Tyler Ferguson,21,yes,5,Independent,yes,755,
-On-Campus Senator,Soha Sadeghinejad,4,yes,5,Independent,yes,755,
-Off-Campus Senator,Abigail Merkel,201,yes,12,Storke Party,no,2564,
-Off-Campus Senator,Alexander Liebetrau,112,yes,12,Storke Party,no,2564,Zeta Beta Tau
-Off-Campus Senator,Brieonni Johnson,403,yes,12,Isla Vista Party,no,2564,
-Off-Campus Senator,Caria Lee,210,yes,12,Isla Vista Party,no,2564,
-Off-Campus Senator,Coltin Sanders,72,no,12,Storke Party,no,2564,Zeta Beta Tau
-Off-Campus Senator,David Gjerde,158,yes,12,Storke Party,no,2564,Zeta Beta Tau
-Off-Campus Senator,Jamison Evans,227,yes,12,Storke Party,no,2564,Zeta Beta Tau
-Off-Campus Senator,Jonathan Alberts,131,yes,12,Storke Party,no,2564,Zeta Beta Tau-Iranian Jewish Student Association
-Off-Campus Senator,Jonathan Roberts,75,no,12,Storke Party,no,2564,Zeta Beta Tau
-Off-Campus Senator,Kian Mirshokri,156,yes,12,Storke Party,no,2564,Zeta Beta Tau
-Off-Campus Senator,Luisa Ramirez,221,yes,12,Isla Vista Party,no,2564,
-Off-Campus Senator,Megan Khobian,282,yes,12,Storke Party,no,2564,Iranian Jewish Student Association-Zeta Beta Tau
-Off-Campus Senator,Nicole Bongard,163,yes,12,Isla Vista Party,no,2564,Gamma Phi Beta-Sociology Association at UCSB (SA UCSB)
-Off-Campus Senator,Ranna Zahabi,153,yes,12,Isla Vista Party,no,2564,
-Student Advocate,Geovany Lucero,3733,yes,1,Unknown,no,3733,Hermanas Unidas de UCSB
-External Vice President - Statewide Affairs,Esmeralda Quintero-Cubillan,2319,yes,1,Isla Vista Party,no,4111,
-External Vice President - Statewide Affairs,Phillip Huynh,1792,no,1,Storke Party,no,4111,Zeta Beta Tau
+position,name,votes,elected,space,party,writeIn,totalVotes,endorsements,quarter,year
+Transfer Senator,Hannah Lee,344,yes,1,Isla Vista Party,no,547,,spring,2021
+Transfer Senator,Zachary Brenner,203,no,1,Storke Party,no,547,Zeta Beta Tau,spring,2021
+International Senator,Aijia Wang,95,yes,2,Storke Party,no,261,Zeta Beta Tau,spring,2021
+International Senator,April Zhang,166,yes,2,Isla Vista Party,no,261,,spring,2021
+Collegiate Senator - Creative Studies,Cassandra Chow,37,yes,1,Storke Party,no,37,Zeta Beta Tau,spring,2021
+Collegiate Senator - Engineering,Cesar Castillo,227,yes,1,Independent,no,227,,spring,2021
+Collegiate Senator - Letters & Science,Avital Rutenburg,724,yes,4,Storke Party,no,3680,Zeta Beta Tau,spring,2021
+Collegiate Senator - Letters & Science,Elizabeth Garabedian,460,no,4,Storke Party,no,3680,Zeta Beta Tau,spring,2021
+Collegiate Senator - Letters & Science,Hailey Stankiewicz,909,yes,4,Isla Vista Party,no,3680,,spring,2021
+Collegiate Senator - Letters & Science,Taylor Tait,622,yes,4,Storke Party,no,3680,Zeta Beta Tau,spring,2021
+Collegiate Senator - Letters & Science,Vincent Tran,965,yes,4,Isla Vista Party,no,3680,,spring,2021
+Off-Campus University Owned,Erick Aragon Alvarado,126,no,1,Isla Vista Party,no,457,Zeta Beta Tau,spring,2021
+Off-Campus University Owned,Erika Ramos,331,yes,1,Storke Party,no,457,,spring,2021
+On-Campus Senator,Jessy Gonzalez,369,yes,5,Isla Vista Party,no,755,,spring,2021
+On-Campus Senator,Ethan Engler,361,yes,5,Storke Party,no,755,Zeta Beta Tau,spring,2021
+On-Campus Senator,Tyler Ferguson,21,yes,5,Independent,yes,755,,spring,2021
+On-Campus Senator,Soha Sadeghinejad,4,yes,5,Independent,yes,755,,spring,2021
+Off-Campus Senator,Abigail Merkel,201,yes,12,Storke Party,no,2564,,spring,2021
+Off-Campus Senator,Alexander Liebetrau,112,yes,12,Storke Party,no,2564,Zeta Beta Tau,spring,2021
+Off-Campus Senator,Brieonni Johnson,403,yes,12,Isla Vista Party,no,2564,,spring,2021
+Off-Campus Senator,Caria Lee,210,yes,12,Isla Vista Party,no,2564,,spring,2021
+Off-Campus Senator,Coltin Sanders,72,no,12,Storke Party,no,2564,Zeta Beta Tau,spring,2021
+Off-Campus Senator,David Gjerde,158,yes,12,Storke Party,no,2564,Zeta Beta Tau,spring,2021
+Off-Campus Senator,Jamison Evans,227,yes,12,Storke Party,no,2564,Zeta Beta Tau,spring,2021
+Off-Campus Senator,Jonathan Alberts,131,yes,12,Storke Party,no,2564,Zeta Beta Tau-Iranian Jewish Student Association,spring,2021
+Off-Campus Senator,Jonathan Roberts,75,no,12,Storke Party,no,2564,Zeta Beta Tau,spring,2021
+Off-Campus Senator,Kian Mirshokri,156,yes,12,Storke Party,no,2564,Zeta Beta Tau,spring,2021
+Off-Campus Senator,Luisa Ramirez,221,yes,12,Isla Vista Party,no,2564,,spring,2021
+Off-Campus Senator,Megan Khobian,282,yes,12,Storke Party,no,2564,Iranian Jewish Student Association-Zeta Beta Tau,spring,2021
+Off-Campus Senator,Nicole Bongard,163,yes,12,Isla Vista Party,no,2564,Gamma Phi Beta-Sociology Association at UCSB (SA UCSB),spring,2021
+Off-Campus Senator,Ranna Zahabi,153,yes,12,Isla Vista Party,no,2564,,spring,2021
+Student Advocate,Geovany Lucero,3733,yes,1,Unknown,no,3733,Hermanas Unidas de UCSB,spring,2021
+External Vice President - Statewide Affairs,Esmeralda Quintero-Cubillan,2319,yes,1,Isla Vista Party,no,4111,,spring,2021
+External Vice President - Statewide Affairs,Phillip Huynh,1792,no,1,Storke Party,no,4111,Zeta Beta Tau,spring,2021
+President,Shva Star,1901,no,1,Isla Vista Party,no,4263,,spring,2021
+President,Yuval Cohen,2362,yes,1,Storke Party,no,4263,,spring,2021
+Student Advocate,Sarah Danielzadeh,422,yes,1,Independent,no,1651,,fall,2020
+Student Advocate,Isaiah Aly,365,no,1,Independent,no,1651,,fall,2020
+Student Advocate,Bruce Fan,277,no,1,Independent,no,1651,,fall,2020
+Student Advocate,Britney Walton,198,no,1,Independent,no,1651,,fall,2020
+Student Advocate,Dominique Mihaljevic,106,no,1,Independent,no,1651,,fall,2020
+Student Advocate,Kelly Gates,86,no,1,Independent,no,1651,,fall,2020
+Student Advocate,Sofia Carmona,64,no,1,Independent,no,1651,,fall,2020
+Student Advocate,Sara Rubin,60,no,1,Independent,no,1651,,fall,2020
+Student Advocate,Cade Breslin,37,no,1,Independent,no,1651,,fall,2020
+Student Advocate,Ariana Cuevas,17,no,1,Independent,no,1651,,fall,2020
+Student Advocate,Jose Espinosa Arevalo,12,no,1,Independent,no,1651,,fall,2020
+Student Advocate,Katerina Bandoni,7,no,1,Independent,no,1651,,fall,2020
+Transfer Senator,Ahura Nezhad,260,yes,1,Campus United,no,510,unknown,spring,2020
+Transfer Senator,Brandon Villarreal,250,no,1,Isla Vista Party,no,510,unknown,spring,2020
+Collegiate Senator - Creative Studies,Daniel Mitchell,97,yes,1,unknown,no,97,unknown,spring,2020
+Collegiate Senator - Engineering,Calvin Jenkins,113,no,1,Campus United,no,350,unknown,spring,2020
+Collegiate Senator - Engineering,Gabrial Bravo,69,no,1,Isla Vista Party,no,350,unknown,spring,2020
+Collegiate Senator - Engineering,Nadav Kempinski,53,no,1,Independent,no,350,unknown,spring,2020
+Collegiate Senator - Engineering,Surya Pugal,115,yes,1,Independent,no,350,unknown,spring,2020
+Collegiate Senator - Letters & Science,Aimee Wang,826,yes,4,Campus United,no,4186,unknown,spring,2020
+Collegiate Senator - Letters & Science,Ava Kargosha,509,no,4,Isla Vista Party,no,4186,unknown,spring,2020
+Collegiate Senator - Letters & Science,Hayley Slater,612,yes,4,Campus United,no,4186,unknown,spring,2020
+Collegiate Senator - Letters & Science,Jose Gonzalez-Herrera,707,yes,4,Isla Vista Party,no,4186,unknown,spring,2020
+Collegiate Senator - Letters & Science,Marcello Cutri,548,no,4,Campus United,no,4186,unknown,spring,2020
+Collegiate Senator - Letters & Science,Phillip Huynh,573,no,4,Campus United,no,4186,unknown,spring,2020
+Collegiate Senator - Letters & Science,Rosey Lavery,411,no,4,Isla Vista Party,no,4186,unknown,spring,2020
+Collegiate Senator - Letters & Science,Shva Star,570,yes,4,Isla Vista Party,no,4186,unknown,spring,2020
+Off-Campus University Owned,Bee Schaefer,319,yes,1,Isla Vista Party,no,529,unknown,spring,2020
+Off-Campus University Owned,Jesse Macias,210,no,1,Campus United,no,529,unknown,spring,2020
+On-Campus Senator,Adam Bagul,211,yes,5,Campus United,no,1526,unknown,spring,2020
+On-Campus Senator,Adam Majcher,145,no,5,Campus United,no,1526,unknown,spring,2020
+On-Campus Senator,Anusikha Halder,168,yes,5,Isla Vista Party,no,1526,unknown,spring,2020
+On-Campus Senator,Bryanna Macias,105,no,5,Campus United,no,1526,unknown,spring,2020
+On-Campus Senator,Dania De Ramon,252,yes,5,Isla Vista Party,no,1526,unknown,spring,2020
+On-Campus Senator,Gurleen Pabla,151,yes,5,Campus United,no,1526,unknown,spring,2020
+On-Campus Senator,Katrina Isabel Sacluti,147,no,5,Isla Vista Party,no,1526,unknown,spring,2020
+On-Campus Senator,Ryan Stofer,125,no,5,Isla Vista Party,no,1526,unknown,spring,2020
+On-Campus Senator,Taylor Tait,222,yes,5,Campus United,no,1526,unknown,spring,2020
+Off-Campus Senator,Alexandra Perez,108,no,12,Isla Vista Party,no,3080,unknown,spring,2020
+Off-Campus Senator,Alexia Duran,34,no,12,Isla Vista Party,no,3080,unknown,spring,2020
+Off-Campus Senator,Andrei Arciaga Limayo,75,no,12,Isla Vista Party,no,3080,unknown,spring,2020
+Off-Campus Senator,Angel Diaz,130,yes,12,Isla Vista Party,no,3080,unknown,spring,2020
+Off-Campus Senator,Arleth Real,18,no,12,Isla Vista Party,no,3080,unknown,spring,2020
+Off-Campus Senator,Cameron Parker,49,no,12,Campus United,no,3080,unknown,spring,2020
+Off-Campus Senator,Catherine Flaherty,249,yes,12,Campus United,no,3080,unknown,spring,2020
+Off-Campus Senator,Connie Huerta,73,no,12,Isla Vista Party,no,3080,unknown,spring,2020
+Off-Campus Senator,Dylan Martinez,259,yes,12,Campus United,no,3080,unknown,spring,2020
+Off-Campus Senator,Eileen Tran,192,yes,12,Isla Vista Party,no,3080,unknown,spring,2020
+Off-Campus Senator,Emanual Roman,132,yes,12,Isla Vista Party,no,3080,unknown,spring,2020
+Off-Campus Senator,Esmeralda Quintero-Cubillan,151,yes,12,Isla Vista Party,no,3080,unknown,spring,2020
+Off-Campus Senator,Fabian Oseguera,269,yes,12,Campus United,no,3080,unknown,spring,2020
+Off-Campus Senator,Hailey Stankiewicz,20,no,12,Isla Vista Party,no,3080,unknown,spring,2020
+Off-Campus Senator,Jackson Tofft,147,yes,12,Campus United,no,3080,unknown,spring,2020
+Off-Campus Senator,Jianing Fan,92,no,12,Campus United,no,3080,unknown,spring,2020
+Off-Campus Senator,Kaitlyn Medland,122,no,12,Campus United,no,3080,unknown,spring,2020
+Off-Campus Senator,Karsten Kolbe,170,yes,12,Campus United,no,3080,unknown,spring,2020
+Off-Campus Senator,Kyremina Youssef,278,yes,12,Isla Vista Party,no,3080,unknown,spring,2020
+Off-Campus Senator,Nathan Le,214,yes,12,Campus United,no,3080,unknown,spring,2020
+Off-Campus Senator,Yehuda Jian,92,no,12,Campus United,no,3080,unknown,spring,2020
+Off-Campus Senator,Yuval Cohen,206,yes,12,Campus United,no,3080,unknown,spring,2020
+Student Advocate,Melissa Perez,2813,yes,1,Independent,no,4971,unknown,spring,2020
+Student Advocate,Tyler Ferguson,2158,no,1,Independent,no,4971,unknown,spring,2020
+External Vice President - Statewide Affairs,Alia Reynolds,2764,yes,1,Isla Vista Party,no,5210,unknown,spring,2020
+External Vice President - Statewide Affairs,Beau Karnstrithong,2446,no,1,Campus United,no,5210,unknown,spring,2020
+External Vice President - Local Affairs,Lea Toubian,2327,no,1,Campus United,no,5279,unknown,spring,2020
+External Vice President - Local Affairs,Yasamin Salari,2952,yes,1,Isla Vista Party,no,5279,unknown,spring,2020
+Internal Vice President,Racquel Almario,2416,no,1,Isla Vista Party,no,5326,unknown,spring,2020
+Internal Vice President,Tianna White,2910,yes,1,Campus United,no,5326,unknown,spring,2020
+President,Austin Foreman,537,no,1,Independent,no,5418,unknown,spring,2020
+President,Daevionne Beasley,2807,yes,1,Campus United,no,5418,unknown,spring,2020
+President,Daniel Segura-Esquivel,2074,no,1,Isla Vista Party,no,5418,unknown,spring,2020

@@ -146,7 +146,6 @@ const makePlot = (data, container) => {
       (exit) => exit.remove(),
     );
 
-  console.log(data);
   // bar chart
   // -- color based on .elected
 
