@@ -4,12 +4,11 @@
  * @author bella
  */
 
-import { select } from 'd3-selection';
+import { select, selectAll } from 'd3-selection';
 import { scaleBand, scaleLinear } from 'd3-scale';
 import { axisBottom } from 'd3-axis';
 import { max } from 'd3-array';
 import 'd3-transition';
-import { selectAll } from 'd3-selection';
 import { getPhotoUrl } from './utility';
 
 /**
@@ -96,19 +95,6 @@ const makePlot = (data, container) => {
 
   // put images at end of bars
   bars
-    .append('foreignObject')
-    .attr('x', (d) => x(d.votes) + 10)
-    .attr('y', (d) => y(d.name))
-    .attr('width', (d) => x(d.votes))
-    .attr('height', imageSize)
-    .append('xhtml:img')
-    .attr('width', imageSize)
-    .attr('height', imageSize)
-    .attr('src', (d) => getPhotoUrl(d))
-    .style('border-radius', '50%');
-
-  
-  bars
     .append('rect')
     .attr('x', x(0))
     .attr('y', (d) => y(d.name))
@@ -117,26 +103,51 @@ const makePlot = (data, container) => {
     .attr('fill', (d) => barColors[d.elected])
     .on('mouseenter', (event, d) => {
       svg
-      .append('text')
-      .text(d.votes)
-      .attr('x', x(d.votes) - 10)
-      .attr('y', y(d.name) + 5 + imageSize / 2)
-      .attr('class', 'hover-over-text')
-      .attr('text-anchor', 'end')
-      .attr('fill', 'white');
+        .append('text')
+        .text(d.votes)
+        .attr('x', d.votes < 25 ? x(d.votes) + 75 : x(d.votes) - 35)
+        .attr('y', y(d.name) + 5 + imageSize / 2)
+        .attr('class', 'hover-over-text')
+        .attr('text-anchor', 'end')
+        .attr('fill', d.votes < 25 ? 'black' : 'white');
     })
     .on('mouseleave', () => {
       selectAll('.hover-over-text').remove();
     });
 
   bars
+    .append('foreignObject')
+    .attr('x', (d) => (d.votes < 25 ? x(d.votes) : x(d.votes) - 30))
+    .attr('y', (d) => y(d.name))
+    .attr('width', (d) => x(d.votes))
+    .attr('height', imageSize)
+    .append('xhtml:img')
+    .attr('width', imageSize)
+    .attr('height', imageSize)
+    .attr('src', (d) => getPhotoUrl(d))
+    .style('border-radius', '50%')
+    .on('mouseenter', (event, d) => {
+      svg
+        .append('text')
+        .text(d.votes)
+        .attr('x', d.votes < 25 ? x(d.votes) + 75 : x(d.votes) - 35)
+        .attr('y', y(d.name) + 5 + imageSize / 2)
+        .attr('class', 'hover-over-text-pictures')
+        .attr('text-anchor', 'end')
+        .attr('fill', d.votes < 25 ? 'black' : 'white');
+    })
+    .on('mouseleave', () => {
+      selectAll('.hover-over-text-pictures').remove();
+    });
+
+  bars
     .append('text')
-    .text((d) => (d.name))
-    .attr('x', x(0))//(d) => x(d.votes) - 5)
+    .text((d) => d.name)
+    .attr('x', x(0))
     .attr('y', (d) => y(d.name) - 3)
     .attr('text-anchor', 'start')
     .attr('font-size', '11pt');
-  
+
   /*
      x-axis
     */
@@ -164,7 +175,7 @@ const makePlot = (data, container) => {
  * @since 8/27/2021
  */
 const setupPlot = (data) => {
-// The class is necessary to apply styling
+  // The class is necessary to apply styling
   const container = select('#ucsb-as-voting-faces');
 
   // runs only first time

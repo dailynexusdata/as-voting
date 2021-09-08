@@ -128,7 +128,7 @@ const makePlot = (data) => {
   };
 
   const margin = {
-    top: 10,
+    top: 25,
     right: 10,
     bottom: 10,
     left: 10,
@@ -244,8 +244,17 @@ const makePlot = (data) => {
     .append('text')
     .text((d) => d.key)
     .attr('x', 0)
-    .attr('y', z(0));
+    .attr('y', z(0) - imageSize / 4);
 
+  positionBorders
+    .append('line')
+    .attr('class', 'as-voting-dashed-lines')
+    .style('stroke-dasharray', '3,3')
+    .attr('x1', x(0))
+    .attr('y1', z(0) - imageSize / 2 - 5)
+    .attr('x2', size.width)
+    .attr('y2', z(0) - imageSize / 2 - 5)
+    .attr('stroke', 'black');
   // filter out the first one category from positionBorders
   // and make a dashed horizontal line across
 
