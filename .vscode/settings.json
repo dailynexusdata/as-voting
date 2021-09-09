@@ -7,5 +7,5 @@
         "editor.formatOnSave": true,
         "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
     },
-    "liveServer.settings.port": 5501
+    "liveServer.settings.port": 5502
 }

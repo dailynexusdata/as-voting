@@ -3,7 +3,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 require('dotenv').config();
 
 const plotIds = [
+  'labby-as-voting-position-votes-chart',
+  'labby-as-voting-people-over-years',
   'plot-test',
+  'plot-test-2',
   'ucsb-as-voting-filled-seats',
   'ucsb-as-voting-org',
   'ucsb-as-voting-program-reaffirm',

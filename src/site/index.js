@@ -9,10 +9,22 @@ import { nest } from 'd3-collection';
 import { shuffle } from 'lodash';
 
 import facesBarChart from '../plots/facesBarChart';
-import organization from '../plots/organization';
+import makeTotalVotes from '../plots/totalVotes';
+import makeWinningVotes from '../plots/winningVotes';
 import programChart from '../plots/programChart';
-import makeTestPlot from '../plots/plotTest';
 import makeFilledSeats from '../plots/filledSeats';
+import makePositionVotingChart from '../plots/positionVotesChart';
+import makePeopleOverYears from '../plots/peopleOverYears';
+
+/**
+ * Hypothesis:
+ * * People vote fairly randomly?
+ * * People were less engaged this year than last?
+ *
+ * What's the difference between the two parties?
+ */
+
+const currentYear = (arr) => arr.filter(({ year, quarter }) => quarter === 'spring' && year === 2021);
 
 (async () => {
   const people = await csv('dist/data/people.csv', (d) => ({
@@ -20,6 +32,7 @@ import makeFilledSeats from '../plots/filledSeats';
     votes: +d.votes,
     space: +d.space,
     totalVotes: +d.totalVotes,
+    year: +d.year,
   }));
 
   const programs = (
@@ -31,13 +44,15 @@ import makeFilledSeats from '../plots/filledSeats';
     }))
   ).sort((a, b) => b.pct - a.pct);
 
-  console.log(programs);
+  console.log(people);
 
   const resize = () => {
     facesBarChart(
-      people
-        .filter((d) => d.position === 'On-Campus Senator')
-        .sort((a, b) => a.votes - b.votes),
+      currentYear(
+        people
+          .filter((d) => d.position === 'On-Campus Senator')
+          .sort((a, b) => a.votes - b.votes),
+      ),
     );
     programChart(programs);
     // setTimeout(() => {
@@ -45,8 +60,11 @@ import makeFilledSeats from '../plots/filledSeats';
     //   facesBarChart(shuffle(people).slice(0, 7));
     // }, 5000);
     // organization(people.filter((d) => d.elected === 'yes'));
-    // makeTestPlot(people);
-    makeFilledSeats(people);
+    makeTotalVotes(currentYear(people));
+    makeWinningVotes(currentYear(people));
+    makeFilledSeats(currentYear(people));
+    makePositionVotingChart(people);
+    makePeopleOverYears(people);
   };
 
   window.addEventListener('resize', () => {
