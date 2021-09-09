@@ -5,7 +5,7 @@
  * @author Alex
  */
 import { select } from 'd3-selection';
-import { scaleBand, scaleLinear, scalePoint } from 'd3-scale';
+import { scaleBand, scaleLinear } from 'd3-scale';
 import { max, range } from 'd3-array';
 
 import { getPhotoUrl } from './utility';
@@ -166,7 +166,7 @@ const makePlot = (data) => {
 
   // could simplify domain to [0, maxPeopleLine]
   // but this makes sure its always filled
-  const x = scalePoint()
+  const x = scaleBand()
     .domain(
       range(
         0,
@@ -296,16 +296,16 @@ const makePlot = (data) => {
   positionBorders
     .append('text')
     .text((d) => d.key)
-    .attr('x', 0)
+    .attr('x', margin.left)
     .attr('y', z(0) - imageSize / 4);
 
   positionBorders
     .append('line')
     .attr('class', 'as-voting-dashed-lines')
     .style('stroke-dasharray', '3,3')
-    .attr('x1', x(0))
+    .attr('x1', margin.left)
     .attr('y1', z(0) - imageSize / 2 - 5)
-    .attr('x2', size.width)
+    .attr('x2', size.width - margin.right)
     .attr('y2', z(0) - imageSize / 2 - 5)
     .attr('stroke', 'black');
   // filter out the first one category from positionBorders
