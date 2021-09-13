@@ -8,6 +8,7 @@ import { select } from 'd3-selection';
 import { scaleBand, scaleLinear } from 'd3-scale';
 import { max, range } from 'd3-array';
 
+import { image } from 'd3-fetch';
 import { getPhotoUrl } from './utility';
 
 /**
@@ -71,31 +72,32 @@ const makePlot = (data) => {
    */
   const imageSize = 50;
   const maxPeopleLine = 5;
-  // const catOrder = [
-  //   'External Vice President - Statewide Affairs',
-  //   'Student Advocate',
-  //   'On-Campus Senator',
-  //   'Off-Campus Senator',
-  //   'Collegiate Senator - Letters & Science',
-  //   'Collegiate Senator - Engineering',
-  //   'Collegiate Senator - Creative Studies',
-  //   'Transfer Senator',
-  //   'Off-Campus University Owned',
-  //   'International Senator',
-  // ];
   const catOrder = [
     'President',
     'External Vice President - Statewide Affairs',
     'Student Advocate',
-    'Collegiate Senator - Letters & Science',
-    'Off-Campus Senator',
     'On-Campus Senator',
+    'Off-Campus Senator',
+    'Collegiate Senator - Letters & Science',
+    'Collegiate Senator - Engineering',
+    'Collegiate Senator - Creative Studies',
     'Transfer Senator',
     'Off-Campus University Owned',
     'International Senator',
-    'Collegiate Senator - Engineering',
-    'Collegiate Senator - Creative Studies',
   ];
+  // const catOrder = [
+  //   'President',
+  //   'External Vice President - Statewide Affairs',
+  //   'Student Advocate',
+  //   'Collegiate Senator - Letters & Science',
+  //   'Off-Campus Senator',
+  //   'On-Campus Senator',
+  //   'Transfer Senator',
+  //   'Off-Campus University Owned',
+  //   'International Senator',
+  //   'Collegiate Senator - Engineering',
+  //   'Collegiate Senator - Creative Studies',
+  // ];
 
   // data nesting with a max number of items per nest
   // be CAREFUL about the sort to make sure the __1 and __2
@@ -136,13 +138,13 @@ const makePlot = (data) => {
    * Container Setup:
    */
   const size = {
-    height: 1200,
+    height: 1500,
     width: Math.min(600, window.innerWidth - 40),
   };
 
   const margin = {
     top: 25,
-    right: 10,
+    right: 55,
     bottom: 10,
     left: 10,
   };
@@ -301,7 +303,7 @@ const makePlot = (data) => {
 
   positionBorders
     .append('line')
-    .attr('class', 'as-voting-dashed-lines')
+    .attr('class', 'laby-as-voting-filledseats-dashed-lines')
     .style('stroke-dasharray', '3,3')
     .attr('x1', margin.left)
     .attr('y1', z(0) - imageSize / 2 - 5)
@@ -315,6 +317,148 @@ const makePlot = (data) => {
   // * unapposed (1) --- maybe the engineering guy?
   // * lost -- maybe the transfer senator?
   // * unfilled seat (1) --- do it in the top right
+
+  svg
+    .append('path')
+    .attr('id', 'laby-as-voting-filledseats-triangle1')
+    .attr('d', 'M 0 0 10 0 5 10')
+    .attr('refX', 10)
+    .attr('refY', 10)
+    .attr('transform', `translate(${x(4) + imageSize / 2 - 5}, 345)`);
+
+  svg
+    .append('path')
+    .attr(
+      'd',
+      `M ${x(4) + imageSize / 2} 345 Q ${x(4) + imageSize / 2} 300, ${x(
+        4,
+      )} 290`,
+    )
+    .attr('stroke-width', 3)
+    .attr('stroke', 'black')
+    .attr('fill', 'none')
+    .attr('marker-start', 'url(#laby-as-voting-filledseats-triangle1)');
+
+  svg
+    .append('text')
+    .text('The empty circle represents')
+    .attr('text-anchor', 'end')
+    .attr('x', x(4) - 5)
+    .attr('y', 280)
+    .attr('font-size', 12);
+
+  svg
+    .append('text')
+    .text('an unfilled spot due to a')
+    .attr('text-anchor', 'end')
+    .attr('x', x(4) - 5)
+    .attr('y', 280 + 12)
+    .attr('font-size', 12);
+
+  svg
+    .append('text')
+    .text('lack of students running for')
+    .attr('text-anchor', 'end')
+    .attr('x', x(4) - 5)
+    .attr('y', 280 + 24)
+    .attr('font-size', 12);
+
+  svg
+    .append('text')
+    .text('the position')
+    .attr('text-anchor', 'end')
+    .attr('x', x(4) - 5)
+    .attr('y', 280 + 36)
+    .attr('font-size', 12);
+
+  svg
+    .append('path')
+    .attr('id', 'laby-as-voting-filledseats-triangle2')
+    .attr('d', 'M 0 5 10 0 10 10')
+    .attr('refX', 10)
+    .attr('refY', 10)
+    .attr('transform', `translate(${x(1) + imageSize + 5}, 1285)`);
+
+  svg
+    .append('path')
+    .attr(
+      'd',
+      `M ${x(1) + imageSize + 10} 1291 Q ${x(2)} 1285, ${x(2) + 10} 1235`,
+    )
+    .attr('stroke-width', 3)
+    .attr('stroke', 'black')
+    .attr('fill', 'none')
+    .attr('marker-start', 'url(#laby-as-voting-filledseats-triangle2)');
+
+  svg
+    .append('text')
+    .text('A red circle means that')
+    .attr('font-size', 12)
+    .attr('x', x(2))
+    .attr('y', 1200);
+
+  svg
+    .append('text')
+    .text('the student was not')
+    .attr('font-size', 12)
+    .attr('x', x(2))
+    .attr('y', 1200 + 12);
+
+  svg
+    .append('text')
+    .text('elected for the position')
+    .attr('font-size', 12)
+    .attr('x', x(2))
+    .attr('y', 1200 + 24);
+
+  svg
+    .append('path')
+    .attr('id', 'laby-as-voting-filledseats-triangle3')
+    .attr('d', 'M 0 5 10 0 10 10')
+    .attr('refX', 10)
+    .attr('refY', 10)
+    .attr('transform', `translate(${x(0) + imageSize + 5}, 945)`);
+
+  svg
+    .append('path')
+    .attr(
+      'd',
+      `M ${x(0) + imageSize + 10} 950 Q ${x(0) + imageSize * 2} 950, ${x(
+        1,
+      )} 960`,
+    )
+    .attr('stroke-width', 3)
+    .attr('stroke', 'black')
+    .attr('fill', 'none')
+    .attr('marker-start', 'url(#laby-as-voting-filledseats-triangle1)');
+
+  svg
+    .append('text')
+    .text('Only one person ran')
+    .attr('font-size', 12)
+    .attr('x', x(1) + 5)
+    .attr('y', 950);
+
+  svg
+    .append('text')
+    .text('for this position, meaning')
+    .attr('font-size', 12)
+    .attr('x', x(1) + 5)
+    .attr('y', 950 + 12);
+
+  svg
+    .append('text')
+    .text('an automatic win regardless')
+    .attr('font-size', 12)
+    .attr('x', x(1) + 5)
+    .attr('y', 950 + 24);
+
+  svg
+    .append('text')
+    .text('of the vote count')
+    .attr('font-size', 12)
+    .attr('x', x(1) + 5)
+    .attr('y', 950 + 36);
 };
 
 export default makePlot;

@@ -85,65 +85,7 @@ const makePlot = (data, container) => {
     no: 'red',
   };
 
-  const bars = svg
-    .selectAll('.labby-as-senate-faces-bar-chart-bars')
-    .data(data)
-    .join(
-      (enter) => {
-        const person = enter
-          .append('g')
-          .attr('class', 'labby-as-senate-faces-bar-chart-bars');
-
-        person
-          .append('foreignObject')
-          .attr('x', (d) => x(d.votes))
-          .attr('y', (d) => y(d.name))
-          .attr('width', imageSize)
-          .attr('height', imageSize)
-          .append('xhtml:img')
-          .attr('width', imageSize)
-          .attr('height', imageSize)
-          .attr('src', (d) => getPhotoUrl(d))
-          .style('border-radius', '50%');
-
-        person
-          .append('rect')
-          .attr('x', x(0))
-          .attr('y', (d) => y(d.name))
-          .attr('width', (d) => x(d.votes) - imageSize + 10)
-          .attr('height', imageSize)
-          .attr('fill', (d) => barColors[d.elected]);
-
-        person
-          .append('text')
-          .text((d) => d.name)
-          .attr('class', 'labby-as-senate-faces-bar-start-text')
-          .attr('x', x(0)) // (d) => x(d.votes) - 5)
-          .attr('y', (d) => y(d.name) - 3)
-          .attr('text-anchor', 'start')
-          .attr('font-size', '11pt');
-
-        person
-          .on('mouseenter', (event, d) => {
-            svg
-              .append('text')
-              .text(d.votes)
-              .attr('x', x(d.votes) - 10)
-              .attr('y', y(d.name) + 5 + imageSize / 2)
-              .attr('class', 'labby-as-senate-hover-over-text')
-              .attr('text-anchor', 'end')
-              .attr('fill', 'white')
-              .attr('pointer-events', 'none');
-          })
-          .on('mouseleave', () => {
-            selectAll('.labby-as-senate-hover-over-text').remove();
-          });
-      },
-      (update) => {
-        update.remove();
-      },
-      (exit) => exit.remove(),
-    );
+  const bars = svg.selectAll('bars').data(data).join('g');
 
   // bar chart
   // -- color based on .elected
@@ -151,59 +93,49 @@ const makePlot = (data, container) => {
   // name text on top of bars
 
   // put images at end of bars
-  // bars
-  //   .append('rect')
-  //   .attr('x', x(0))
-  //   .attr('y', (d) => y(d.name))
-  //   .attr('width', (d) => x(d.votes) - imageSize + 10)
-  //   .attr('height', imageSize)
-  //   .attr('fill', (d) => barColors[d.elected])
-  //   .on('mouseenter', (event, d) => {
-  // svg
-  //   .append('text')
-  //   .text(d.votes)
-  //   .attr('x', d.votes < 25 ? x(d.votes) + 75 : x(d.votes) - 35)
-  //   .attr('y', y(d.name) + 5 + imageSize / 2)
-  //   .attr('class', 'hover-over-text')
-  //   .attr('text-anchor', 'end')
-  //   .attr('fill', d.votes < 25 ? 'black' : 'white');
-  // })
-  // .on('mouseleave', () => {
-  //   selectAll('.hover-over-text').remove();
-  // });
+  bars
+    .append('rect')
+    .attr('x', x(0))
+    .attr('y', (d) => y(d.name))
+    .attr('width', (d) => x(d.votes) - imageSize + 10)
+    .attr('height', imageSize)
+    .attr('fill', (d) => barColors[d.elected]);
 
-  // bars
-  //   .append('foreignObject')
-  //   .attr('x', (d) => (d.votes < 25 ? x(d.votes) : x(d.votes) - 30))
-  //   .attr('y', (d) => y(d.name))
-  //   .attr('width', (d) => x(d.votes))
-  //   .attr('height', imageSize)
-  //   .append('xhtml:img')
-  //   .attr('width', imageSize)
-  //   .attr('height', imageSize)
-  //   .attr('src', (d) => getPhotoUrl(d))
-  //   .style('border-radius', '50%')
-  //   .on('mouseenter', (event, d) => {
-  //     svg
-  //       .append('text')
-  //       .text(d.votes)
-  //       .attr('x', d.votes < 25 ? x(d.votes) + 75 : x(d.votes) - 35)
-  //       .attr('y', y(d.name) + 5 + imageSize / 2)
-  //       .attr('class', 'hover-over-text-pictures')
-  //       .attr('text-anchor', 'end')
-  //       .attr('fill', d.votes < 25 ? 'black' : 'white');
-  //   })
-  //   .on('mouseleave', () => {
-  //     selectAll('.hover-over-text-pictures').remove();
-  //   });
+  bars
+    .on('mouseenter', (event, d) => {
+      svg
+        .append('text')
+        .text(d.votes)
+        .attr('x', d.votes < 25 ? x(d.votes) + 75 : x(d.votes) - 35)
+        .attr('y', y(d.name) + 5 + imageSize / 2)
+        .attr('class', 'hover-over-text')
+        .style('pointer-events', 'none')
+        .attr('text-anchor', 'end')
+        .attr('fill', d.votes < 25 ? 'black' : 'white');
+    })
+    .on('mouseleave', () => {
+      selectAll('.hover-over-text').remove();
+    });
 
-  // bars
-  //   .append('text')
-  //   .text((d) => d.name)
-  //   .attr('x', x(0))
-  //   .attr('y', (d) => y(d.name) - 3)
-  //   .attr('text-anchor', 'start')
-  //   .attr('font-size', '11pt');
+  bars
+    .append('foreignObject')
+    .attr('x', (d) => (d.votes < 25 ? x(d.votes) : x(d.votes) - 30))
+    .attr('y', (d) => y(d.name))
+    .attr('width', imageSize)
+    .attr('height', imageSize)
+    .append('xhtml:img')
+    .attr('width', imageSize)
+    .attr('height', imageSize)
+    .attr('src', (d) => getPhotoUrl(d))
+    .style('border-radius', '50%');
+
+  bars
+    .append('text')
+    .text((d) => d.name)
+    .attr('x', x(0))
+    .attr('y', (d) => y(d.name) - 3)
+    .attr('text-anchor', 'start')
+    .attr('font-size', '11pt');
 
   /*
      x-axis
