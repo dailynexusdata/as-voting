@@ -340,6 +340,38 @@ const makePlot = (data) => {
     .attr('marker-start', 'url(#laby-as-voting-filledseats-triangle1)');
 
   svg
+    .append('text')
+    .text('The empty circle represents')
+    .attr('text-anchor', 'end')
+    .attr('x', x(4) - 5)
+    .attr('y', 280)
+    .attr('font-size', 12);
+
+  svg
+    .append('text')
+    .text('an unfilled spot due to a')
+    .attr('text-anchor', 'end')
+    .attr('x', x(4) - 5)
+    .attr('y', 280 + 12)
+    .attr('font-size', 12);
+
+  svg
+    .append('text')
+    .text('lack of students running for')
+    .attr('text-anchor', 'end')
+    .attr('x', x(4) - 5)
+    .attr('y', 280 + 24)
+    .attr('font-size', 12);
+
+  svg
+    .append('text')
+    .text('the position')
+    .attr('text-anchor', 'end')
+    .attr('x', x(4) - 5)
+    .attr('y', 280 + 36)
+    .attr('font-size', 12);
+
+  svg
     .append('path')
     .attr('id', 'laby-as-voting-filledseats-triangle2')
     .attr('d', 'M 0 5 10 0 10 10')
@@ -357,6 +389,27 @@ const makePlot = (data) => {
     .attr('stroke', 'black')
     .attr('fill', 'none')
     .attr('marker-start', 'url(#laby-as-voting-filledseats-triangle2)');
+
+  svg
+    .append('text')
+    .text('A red circle means that')
+    .attr('font-size', 12)
+    .attr('x', x(2))
+    .attr('y', 1200);
+
+  svg
+    .append('text')
+    .text('the student was not')
+    .attr('font-size', 12)
+    .attr('x', x(2))
+    .attr('y', 1200 + 12);
+
+  svg
+    .append('text')
+    .text('elected for the position')
+    .attr('font-size', 12)
+    .attr('x', x(2))
+    .attr('y', 1200 + 24);
 
   svg
     .append('path')
@@ -378,6 +431,34 @@ const makePlot = (data) => {
     .attr('stroke', 'black')
     .attr('fill', 'none')
     .attr('marker-start', 'url(#laby-as-voting-filledseats-triangle1)');
+
+  svg
+    .append('text')
+    .text('Only one person ran')
+    .attr('font-size', 12)
+    .attr('x', x(1) + 5)
+    .attr('y', 950);
+
+  svg
+    .append('text')
+    .text('for this position, meaning')
+    .attr('font-size', 12)
+    .attr('x', x(1) + 5)
+    .attr('y', 950 + 12);
+
+  svg
+    .append('text')
+    .text('an automatic win regardless')
+    .attr('font-size', 12)
+    .attr('x', x(1) + 5)
+    .attr('y', 950 + 24);
+
+  svg
+    .append('text')
+    .text('of the vote count')
+    .attr('font-size', 12)
+    .attr('x', x(1) + 5)
+    .attr('y', 950 + 36);
 };
 
 export default makePlot;
