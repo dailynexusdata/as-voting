@@ -8,6 +8,7 @@ import { select } from 'd3-selection';
 import { scaleBand, scaleLinear, scalePoint } from 'd3-scale';
 import { max, range } from 'd3-array';
 
+import { image } from 'd3-fetch';
 import { getPhotoUrl } from './utility';
 
 /**
@@ -71,31 +72,32 @@ const makePlot = (data) => {
    */
   const imageSize = 50;
   const maxPeopleLine = 5;
-  // const catOrder = [
-  //   'External Vice President - Statewide Affairs',
-  //   'Student Advocate',
-  //   'On-Campus Senator',
-  //   'Off-Campus Senator',
-  //   'Collegiate Senator - Letters & Science',
-  //   'Collegiate Senator - Engineering',
-  //   'Collegiate Senator - Creative Studies',
-  //   'Transfer Senator',
-  //   'Off-Campus University Owned',
-  //   'International Senator',
-  // ];
   const catOrder = [
     'President',
     'External Vice President - Statewide Affairs',
     'Student Advocate',
-    'Collegiate Senator - Letters & Science',
-    'Off-Campus Senator',
     'On-Campus Senator',
+    'Off-Campus Senator',
+    'Collegiate Senator - Letters & Science',
+    'Collegiate Senator - Engineering',
+    'Collegiate Senator - Creative Studies',
     'Transfer Senator',
     'Off-Campus University Owned',
     'International Senator',
-    'Collegiate Senator - Engineering',
-    'Collegiate Senator - Creative Studies',
   ];
+  // const catOrder = [
+  //   'President',
+  //   'External Vice President - Statewide Affairs',
+  //   'Student Advocate',
+  //   'Collegiate Senator - Letters & Science',
+  //   'Off-Campus Senator',
+  //   'On-Campus Senator',
+  //   'Transfer Senator',
+  //   'Off-Campus University Owned',
+  //   'International Senator',
+  //   'Collegiate Senator - Engineering',
+  //   'Collegiate Senator - Creative Studies',
+  // ];
 
   // data nesting with a max number of items per nest
   // be CAREFUL about the sort to make sure the __1 and __2
@@ -136,13 +138,13 @@ const makePlot = (data) => {
    * Container Setup:
    */
   const size = {
-    height: 1200,
+    height: 1500,
     width: Math.min(600, window.innerWidth - 40),
   };
 
   const margin = {
     top: 25,
-    right: 10,
+    right: 55,
     bottom: 10,
     left: 10,
   };
@@ -315,6 +317,30 @@ const makePlot = (data) => {
   // * unapposed (1) --- maybe the engineering guy?
   // * lost -- maybe the transfer senator?
   // * unfilled seat (1) --- do it in the top right
+
+  svg
+    .append('path')
+    .attr('id', 'laby-as-voting-filledseats-triangle1')
+    .attr('d', 'M 0 0 10 0 5 10')
+    .attr('refX', 10)
+    .attr('refY', 10)
+    .attr('transform', `translate(${x(4) + imageSize / 2 - 5}, 345)`);
+
+  svg
+    .append('path')
+    .attr('id', 'laby-as-voting-filledseats-triangle2')
+    .attr('d', 'M 0 5 10 0 10 10')
+    .attr('refX', 10)
+    .attr('refY', 10)
+    .attr('transform', `translate(${x(1) + imageSize + 5}, 1170)`);
+
+  svg
+    .append('path')
+    .attr('id', 'laby-as-voting-filledseats-triangle3')
+    .attr('d', 'M 0 5 10 0 10 10')
+    .attr('refX', 10)
+    .attr('refY', 10)
+    .attr('transform', `translate(${x(0) + imageSize + 5}, 945)`);
 };
 
 export default makePlot;
