@@ -303,7 +303,7 @@ const makePlot = (data) => {
 
   positionBorders
     .append('line')
-    .attr('class', 'as-voting-dashed-lines')
+    .attr('class', 'laby-as-voting-filledseats-dashed-lines')
     .style('stroke-dasharray', '3,3')
     .attr('x1', x(0))
     .attr('y1', z(0) - imageSize / 2 - 5)
@@ -328,11 +328,35 @@ const makePlot = (data) => {
 
   svg
     .append('path')
+    .attr(
+      'd',
+      `M ${x(4) + imageSize / 2} 345 Q ${x(4) + imageSize / 2} 300, ${x(
+        4,
+      )} 290`,
+    )
+    .attr('stroke-width', 3)
+    .attr('stroke', 'black')
+    .attr('fill', 'none')
+    .attr('marker-start', 'url(#laby-as-voting-filledseats-triangle1)');
+
+  svg
+    .append('path')
     .attr('id', 'laby-as-voting-filledseats-triangle2')
     .attr('d', 'M 0 5 10 0 10 10')
     .attr('refX', 10)
     .attr('refY', 10)
-    .attr('transform', `translate(${x(1) + imageSize + 5}, 1170)`);
+    .attr('transform', `translate(${x(1) + imageSize + 5}, 1285)`);
+
+  svg
+    .append('path')
+    .attr(
+      'd',
+      `M ${x(1) + imageSize + 10} 1291 Q ${x(2)} 1285, ${x(2) + 10} 1235`,
+    )
+    .attr('stroke-width', 3)
+    .attr('stroke', 'black')
+    .attr('fill', 'none')
+    .attr('marker-start', 'url(#laby-as-voting-filledseats-triangle2)');
 
   svg
     .append('path')
@@ -341,6 +365,19 @@ const makePlot = (data) => {
     .attr('refX', 10)
     .attr('refY', 10)
     .attr('transform', `translate(${x(0) + imageSize + 5}, 945)`);
+
+  svg
+    .append('path')
+    .attr(
+      'd',
+      `M ${x(0) + imageSize + 10} 950 Q ${x(0) + imageSize * 2} 950, ${x(
+        1,
+      )} 960`,
+    )
+    .attr('stroke-width', 3)
+    .attr('stroke', 'black')
+    .attr('fill', 'none')
+    .attr('marker-start', 'url(#laby-as-voting-filledseats-triangle1)');
 };
 
 export default makePlot;
