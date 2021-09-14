@@ -5,7 +5,7 @@ import { select } from 'd3-selection';
 import { nest } from 'd3-collection';
 import { getPhotoUrl } from './utility';
 
-const makeSinglePlot = (div, data) => {
+const makeSinglePlot = (div) => {
   div.append('h1').text("Peron's Name");
 
   const size = {
@@ -21,6 +21,9 @@ const makeSinglePlot = (div, data) => {
   };
 
   const svg = div
+    .selectAll('svg')
+    .data((d) => [d])
+    .enter()
     .append('svg')
     .attr('width', size.width)
     .attr('height', size.height);
@@ -47,6 +50,12 @@ const makePlot = (data) => {
     .entries(data)
     .filter((d) => d.values.length > 1);
 
+  const plotDivs = plotArea
+    .selectAll('div')
+    .data(multiPeople)
+    .enter()
+    .append('div');
+  makeSinglePlot(plotDivs);
   // these are the people you want to make plots of
   // filter out `data` to get all of the other people for the same position, quarter, year
   console.log(multiPeople);
